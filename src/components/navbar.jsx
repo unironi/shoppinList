@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
 
-class Navbar extends Component {
+const Navbar = ({totalCounters}) => {
+    return ( 
+        <nav className="navbar navbar-light bg-light">
+            <a className="navbar-brand" href="#">
+                Navbar{" "} 
+                <span className="btn btn-secondary m-2">
+                    {totalCounters}
+                </span>
+            </a>
+        </nav> 
+  );
+};
+
+/*class Navbar extends Component {
     render() { 
         return ( 
             <nav className="navbar navbar-light bg-light">
                 <a className="navbar-brand" href="#">
                     Navbar{" "} 
-                    <span className="btn btn-secondary btn-sm m-2">{this.props.totalCounters}</span>
+                    <span className="btn btn-secondary m-2">
+                        {this.props.totalCounters}
+                    </span>
                 </a>
             </nav> 
       );
     }
-}
+}*/
  
 export default Navbar;

@@ -6,12 +6,23 @@ import React, { Component } from 'react';
 
 class App extends Component {
   state = { 
-    counters: [{id: 1, value: 0}, {id: 2, value: 0}, {id: 3, value: 0}, {id: 4, value: 0}]
+    counters: []
  }
 
  handleDelete = (counterId) => {
      const counters = this.state.counters.filter(counter => counter.id !== counterId);
      this.setState({ counters });
+ }
+
+ handleDeleteAll = () => {
+   const counters = [];
+   this.setState({ counters });
+ }
+
+ handleAdd = () => {
+   const newId = this.state.counters.length;
+   const counters = this.state.counters.concat({id: newId, value: 0});
+   this.setState({ counters });
  }
 
  handleReset = () => {
@@ -25,23 +36,34 @@ class App extends Component {
  handleIncrement = (counter) => {
      const counters = [...this.state.counters];
      const index = counters.indexOf(counter);
-     //counters[index] = {...counter};
+     counters[index] = {...counter};
      counters[index].value++;
      this.setState({ counters });
+ }
+
+ handleDecrement = (counter) => {
+   const counters = [...this.state.counters];
+   const index = counters.indexOf(counter);
+   counters[index] = {...counter};
+   --counters[index].value;
+   this.setState({ counters });
  }
 
   render() {
     return (
       <React.Fragment>
         <Navbar 
-          totalcounters={this.state.counters.filter(c => c.value > 0).length}
+          // totalcounters={this.state.counters.filter(c => c.value > 0).length}
         />
         <main className="container">
           <Counters 
             counters={this.state.counters}
             onReset={this.handleReset}
             onDelete={this.handleDelete}
+            onDeleteAll={this.handleDeleteAll}
+            onAdd={this.handleAdd}
             onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
           />
         </main>
       </React.Fragment>
