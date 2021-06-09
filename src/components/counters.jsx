@@ -9,7 +9,7 @@ class Counters extends Component {
                 <button 
                     onClick={onReset}
                     className="btn btn-primary m-2"
-                >Reset</button>
+                >Reset All</button>
                 <button
                     onClick={onAdd}
                     className="btn btn-warning m-2"

@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/navbar'
 import Counters from './components/counters';
 import React, { Component } from 'react';
+import Heading from './components/navbar';
 
 class App extends Component {
   state = { 
@@ -52,7 +53,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar 
+        <Heading 
           // totalcounters={this.state.counters.filter(c => c.value > 0).length}
         />
         <main className="container">

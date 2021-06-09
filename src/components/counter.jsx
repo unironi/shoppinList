@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
+import Col from'react-bootstrap/Col';
 
 class Counter extends Component {
  //   state = {
@@ -16,6 +18,11 @@ class Counter extends Component {
     render() {
         return (
             <div>
+                <Form.Row>
+                    <Col xs={3}>
+                        <Form.Control type="text" placeholder="Item" />
+                    </Col>
+                </Form.Row>
                 <span className={this.getBadgeClass()}>{this.formatCount()}</span>
                 <button 
                    // onClick={this.handleIncrement} 
